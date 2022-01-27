@@ -1,0 +1,1 @@
+package fr.inti.formation.entity;
