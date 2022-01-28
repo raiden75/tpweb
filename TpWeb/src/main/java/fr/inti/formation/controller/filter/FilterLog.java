@@ -61,12 +61,12 @@ public class FilterLog implements Filter {
 		HttpSession session = req.getSession(false);
 		String uri = req.getRequestURI();
 		this.context.log("Requested Resource : " + uri);
-//		if(session==null && !uri.endsWith("loginServlet") || (uri.endsWith("index.html"))) {
-//			this.context.log("Unauthorized connexion request !");
-//			res.sendRedirect("index.html");
-//		}else {
-//			chain.doFilter(request, response);
-//		}
+		if(session==null && (!uri.endsWith("InfoServlet") || uri.endsWith("index.html"))) {
+			this.context.log("Unauthorized connexion request !");
+			res.sendRedirect("index.html");
+		}else {
+			chain.doFilter(request, response);
+		}
 		// pass the request along the filter chain
 		log.debug("doFilter after");
 		chain.doFilter(request, response);

@@ -35,6 +35,8 @@ public class Employee {
 	private String lastName;
 	@Column(name = "start_date")
 	private Date startDate;
+	@Column(name = "title")
+	private String title;
 	@OneToOne
 	@JoinColumn(name = "user_id", nullable = false)
 	private User user;
@@ -82,6 +84,18 @@ public class Employee {
 
 	public User getUser() {
 		return user;
+	}
+
+
+
+	public String getTitle() {
+		return title;
+	}
+
+
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 
